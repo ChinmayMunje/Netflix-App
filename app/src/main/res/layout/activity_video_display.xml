@@ -4,22 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/dark_blue_back_shade"
     tools:context=".VideoDisplayActivity">
 
-    <ImageView
-        android:id="@+id/idIVVideo"
+    <LinearLayout
+        android:id="@+id/idLLHeading"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_blue_back_shade"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_play_arrow"
+            android:tint="@android:color/holo_red_light" />
+
+        <TextView
+            android:id="@+id/idTVHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:padding="8dp"
+            android:text="@string/app_name"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/idRLVideoImg"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:paddingTop="-20dp"
-        android:paddingBottom="-20dp"
-        android:scaleType="centerCrop" />
+        android:layout_below="@id/idLLHeading">
+
+        <ImageView
+            android:id="@+id/idIVVideo"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/dark_blue_back_shade"
+            android:paddingTop="-20dp"
+            android:paddingBottom="-20dp"
+            android:scaleType="centerCrop" />
+
+        <ImageButton
+            android:id="@+id/idIBPlay"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:tint="@android:color/holo_red_light"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play_arrow" />
+
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/idTVVideoTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idIVVideo"
+        android:layout_below="@id/idRLVideoImg"
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
@@ -56,8 +108,9 @@
         android:layout_above="@id/idTVVideoTitle"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="-10dp"
+        android:layout_marginBottom="-25dp"
         android:src="@drawable/ic_play"
+        android:visibility="gone"
         app:backgroundTint="@android:color/holo_red_light"
         app:tint="@color/white" />
 

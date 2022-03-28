@@ -3,6 +3,7 @@ package com.gtappdevelopers.netflixapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ public class VideoDisplayActivity extends AppCompatActivity {
 
     String videoTitle, videoDesc, videoID, videoCategory;
     private ImageView videoIV;
+    private ImageButton playVIdeoIB;
     private TextView videoTitleTV, videoDescTV, videoCategoryTV;
     private FloatingActionButton playFAB;
 
@@ -31,7 +33,16 @@ public class VideoDisplayActivity extends AppCompatActivity {
         videoDescTV = findViewById(R.id.idTVDesc);
         videoCategoryTV = findViewById(R.id.idTVCategory);
         playFAB = findViewById(R.id.idFABPlay);
+        playVIdeoIB = findViewById(R.id.idIBPlay);
 
+        playVIdeoIB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(VideoDisplayActivity.this, VideoPlayerActivity.class);
+                i.putExtra("videoID", videoID);
+                startActivity(i);
+            }
+        });
         playFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
