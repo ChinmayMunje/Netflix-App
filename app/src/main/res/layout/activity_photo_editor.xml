@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_shade_2"
+    tools:context=".photoEditorApp.PhotoEditorActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/idRLActionBar"
+        android:background="@color/dark_blue_back_shade"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Photo Editor"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@id/idTVSave"
+            android:padding="4dp"
+            android:layout_margin="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Save"
+            android:drawablePadding="3dp"
+            android:drawableLeft="@drawable/ic_save"
+            android:drawableTint="@color/white"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:id="@+id/idTVSave"
+            />
+
+
+    </RelativeLayout>
+    <ja.burhanrashid52.photoeditor.PhotoEditorView
+        android:id="@+id/photoEditorView"
+        android:layout_width="match_parent"
+        android:layout_below="@id/idRLActionBar"
+        android:layout_height="match_parent"
+        android:layout_above="@id/idHSV"
+        app:photo_src="@drawable/img" />
+
+    <Button
+        android:id="@+id/idBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Add Shape"
+        android:visibility="gone" />
+
+    <HorizontalScrollView
+        android:id="@+id/idHSV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black_shade_1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_shade_1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/idLLBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/idIVBrush"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/paintbrush"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Brush"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/idLLEraser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/idIVEraser"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/eraser"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Eraser"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/idLLUndo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/idIVUndo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/undo"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Undo"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/idLLRedo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/redo"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Redo"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/idLLShape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/shapes"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Shapes"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/idLLText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_brush"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Text"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/idLLFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_brush"
+                    android:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Filter"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</RelativeLayout>
